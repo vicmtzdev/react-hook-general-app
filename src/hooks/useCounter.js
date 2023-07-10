@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useCounter = (initialValue = 10) => {
+export const useCounter = (initialValue = 0) => {
 
     const [counter, setCounter] = useState(initialValue);
 
@@ -12,7 +12,7 @@ export const useCounter = (initialValue = 10) => {
 
     const decrement = (value = 1) => {
 
-        if (counter === 0) return;
+        if (counter === 1) return;
         setCounter(counter - value);
 
     }
