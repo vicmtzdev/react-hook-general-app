@@ -1,12 +1,22 @@
+import { useLayoutEffect, useRef } from 'react';
 
 export const Card = ({ name, illustrator, rarity, stage, hp, counter, increment, decrement, reset }) => {
+
+    const nameRef = useRef();
+
+    useLayoutEffect(() => {
+
+        console.log(nameRef.current.getBoundingClientRect());
+
+    }, [])
+
     return (
         <>
 
             <div className="card text-white bg-dark mx-auto rounded-3" style={{ maxWidth: "18rem" }}>
                 <img className="card-img-top p-3 pb-0" src={`https://assets.tcgdex.net/en/swsh/swsh3/${counter}/high.png`} alt="Card image cap" />
                 <div className="card-body">
-                    <h5 className="card-title p-2">{name}</h5>
+                    <h5 className="card-title p-2" ref={nameRef}>{name}</h5>
                     <p className="card-text m-2">Illustrator: {illustrator}</p>
                     <table className="table table-bordered table-dark m-2 mt-3" style={{ maxWidth: "93%" }}>
                         <tbody>
