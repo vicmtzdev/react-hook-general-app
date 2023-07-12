@@ -22,10 +22,13 @@ export const Padre = () => {
 
     return (
         <div>
-            <h1>Padre</h1>
-            <p> Total: {valor} </p>
 
-            <hr />
+            <div className="card text-white bg-dark mb-3" style={{ maxWidth: "18rem" }}>
+                <div className="card-header">Tarea Memo</div>
+                <div className="card-body">
+                    <h5 className="card-title"> <small>{valor}</small> </h5>
+                </div>
+            </div>
 
             {
                 numeros.map(n => (
