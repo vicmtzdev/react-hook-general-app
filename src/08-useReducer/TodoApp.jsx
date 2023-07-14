@@ -1,29 +1,11 @@
-import { useReducer } from 'react';
+import { useTodos } from '../hooks';
 import { TodoAdd } from './TodoAdd';
 import { TodoList } from './TodoList';
-import { todoReducer } from './todoReducer';
-
-
-const initialState = [{
-    id: new Date().getTime(),
-    description: 'Recolectar la piedra del alma',
-    done: false,
-},
-{
-    id: new Date().getTime() * 3,
-    description: 'Recolectar la piedra del tiemo',
-    done: false,
-},
-]
 
 
 export const TodoApp = () => {
 
-    const [todos, dispatch] = useReducer(todoReducer, initialState);
-
-    const handleNewTodo = (todo) => {
-        console.log({ todo });
-    }
+    const { todos, handleNewTodo, handleDeleteTodo, handleToggleTodo, todosCount, todosPendingCount } = useTodos();
 
     return (
         <>
@@ -36,11 +18,11 @@ export const TodoApp = () => {
                             <TodoAdd onNewTodo={handleNewTodo} />
                         </div>
 
-                        <TodoList todos={todos} />
+                        <TodoList todos={todos} oneDeleteTodo={handleDeleteTodo} onToggleTodo={handleToggleTodo} />
 
                         <div className='d-flex flex-row px-0 justify-content-between mt-1'>
-                            <h6 className='mx-1'>Todos: {10} </h6>
-                            <h6 className='mx-1'>{2} pendiente(s)</h6>
+                            <h6 className='mx-1'>Todos: {todosCount} </h6>
+                            <h6 className='mx-1'>{todosPendingCount} pendiente(s)</h6>
                         </div>
 
                     </div>
