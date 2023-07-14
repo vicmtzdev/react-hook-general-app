@@ -8,11 +8,9 @@ export const MainApp = () => {
     return (
         <>
 
-            <h1>Main Page</h1>
+            {/* <h1>Main Page</h1> */}
 
             <Navbar />
-
-            <hr />
 
             <Routes>
                 <Route path="/" element={<HomePage />} />

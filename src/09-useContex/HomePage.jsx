@@ -4,7 +4,7 @@ export const HomePage = () => {
 
         <>
 
-            <h1>Home Page</h1>
+            <h1 className="my-3 mx-2">Home Page</h1>
 
         </>
 
